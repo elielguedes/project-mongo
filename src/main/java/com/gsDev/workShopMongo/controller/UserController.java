@@ -1,6 +1,7 @@
 package com.gsDev.workShopMongo.controller;
 
 import com.gsDev.workShopMongo.domain.User;
+import com.gsDev.workShopMongo.dto.UserDto;
 import com.gsDev.workShopMongo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -19,8 +20,9 @@ public class UserController {
     private UserService service;
 
     @GetMapping
-    public ResponseEntity<List<User>> findAll(){
+    public ResponseEntity<List<UserDto>> findAll(){
         List<User> list = service.findALl();
-        return ResponseEntity.ok().body(list);
+        List<UserDto> listDto = list.stream().map(x -> new UserDto(x)).toList();
+        return ResponseEntity.ok().body(listDto);
     }
 }

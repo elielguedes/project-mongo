@@ -3,7 +3,6 @@ package com.gsDev.workShopMongo.service;
 import com.gsDev.workShopMongo.domain.User;
 import com.gsDev.workShopMongo.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
